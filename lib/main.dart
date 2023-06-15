@@ -12,12 +12,47 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
+  int iCounter = 0;
+
+  void onClick() {
+    iCounter++;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Click Count',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Text(
+                '$iCounter',
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              IconButton(
+                onPressed: onClick,
+                icon: const Icon(
+                  Icons.add_box_rounded,
+                  size: 40,
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
