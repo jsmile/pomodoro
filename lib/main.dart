@@ -1,23 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int iCounter = 0;
-
-  void onClick() {
-    iCounter++;
-    setState(() {});
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +22,7 @@ class _MyAppState extends State<MyApp> {
           background: Color.fromARGB(255, 49, 45, 45),
         ),
       ),
-      home: const Scaffold(
-        body: Center(),
-      ),
+      home: const HomeScreen(),
     );
   }
 }
