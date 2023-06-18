@@ -22,37 +22,19 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Click Count',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                '$iCounter',
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              IconButton(
-                onPressed: onClick,
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                  size: 40,
-                ),
-              )
-            ],
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
           ),
         ),
+        cardColor: const Color(0xFFF4EDDB),
+        colorScheme: const ColorScheme.light(
+          background: Color.fromARGB(255, 49, 45, 45),
+        ),
+      ),
+      home: const Scaffold(
+        body: Center(),
       ),
     );
   }
