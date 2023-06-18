@@ -55,6 +55,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return duration.toString().split('.').first.substring(2, 7);
   }
 
+  void onResetPressed() {
+    setState(() {
+      iPomodoros = 0;
+      iTotalSeconds = twentyFiveMinutes;
+      timer.cancel();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,15 +86,32 @@ class _HomeScreenState extends State<HomeScreen> {
           Flexible(
             flex: 3,
             child: Center(
-              child: IconButton(
-                onPressed: bIsRunning ? onPausePressed : onStartPressed,
-                icon: Icon(
-                  bIsRunning
-                      ? Icons.pause_circle_outlined
-                      : Icons.play_circle_outlined,
-                ),
-                color: Theme.of(context).cardColor,
-                iconSize: 120,
+              child: Column(
+                children: [
+                  IconButton(
+                    onPressed: bIsRunning ? onPausePressed : onStartPressed,
+                    icon: Icon(
+                      bIsRunning
+                          ? Icons.pause_circle_outlined
+                          : Icons.play_circle_outlined,
+                    ),
+                    color: Theme.of(context).cardColor,
+                    iconSize: 120,
+                  ),
+                  const SizedBox(height: 10),
+                  IconButton(
+                    onPressed: onResetPressed,
+                    icon: const Icon(Icons.refresh_outlined),
+                    color: Theme.of(context).cardColor,
+                    iconSize: 40,
+                  ),
+                  Text(
+                    'reset timer',
+                    style: TextStyle(
+                      color: Theme.of(context).cardColor,
+                    ),
+                  )
+                ],
               ),
             ),
           ),
