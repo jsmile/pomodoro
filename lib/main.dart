@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           displayLarge: TextStyle(
             color: Color(0xFF232B55),
+            fontSize: 60,
           ),
         ),
         cardColor: const Color(0xFFF4EDDB),
         colorScheme: const ColorScheme.light(
-          background: Color.fromARGB(255, 49, 45, 45),
+          background: Color(0xFFE7626C),
         ),
       ),
       home: const HomeScreen(),
